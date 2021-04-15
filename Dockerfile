@@ -1,4 +1,5 @@
-FROM node:12-alpine
+FROM quay.io/quintype/public-base:node-12.18.2-alpine
+
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV CHROME_PATH=/usr/lib/chromium/
 ENV MEMORY_CACHE=0
