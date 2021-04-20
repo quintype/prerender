@@ -9,6 +9,10 @@ elasticApm.start({
   environment: process.env.APM_ENVIRONMENT
 });
 
+elasticApm.startTransaction('my-service-a-transaction');
+const traceparent = elasticApm.currentTraceparent;
+sendMetadata(`traceparent: ${traceparent}\n`);
+
 const memCache = Number(process.env.MEMORY_CACHE) || 0;
 const server = prerender({
   chromeFlags: [
