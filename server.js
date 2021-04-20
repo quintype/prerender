@@ -9,7 +9,7 @@ elasticApm.start({
   environment: process.env.APM_ENVIRONMENT
 });
 
-elasticApm.setLabel("http.response.status_code", "504");
+elasticApm.captureError(new Error('boom!'))
 
 const memCache = Number(process.env.MEMORY_CACHE) || 0;
 const server = prerender({
