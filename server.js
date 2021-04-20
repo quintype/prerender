@@ -9,9 +9,6 @@ elasticApm.start({
   environment: process.env.APM_ENVIRONMENT
 });
 
-var err = new Error('Oops, something broke!')
-elasticApm.captureError(err)
-
 const memCache = Number(process.env.MEMORY_CACHE) || 0;
 const server = prerender({
   chromeFlags: [
@@ -24,6 +21,7 @@ const server = prerender({
   ],
   forwardHeaders: true,
   chromeLocation: "/usr/bin/chromium-browser",
+  logRequests: true
 });
 
 server.use(prerender.blacklist());
