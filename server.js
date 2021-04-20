@@ -21,7 +21,6 @@ const server = prerender({
   ],
   forwardHeaders: true,
   chromeLocation: "/usr/bin/chromium-browser",
-  logRequests: true
 });
 
 server.use(prerender.blacklist());
