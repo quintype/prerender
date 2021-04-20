@@ -9,9 +9,8 @@ elasticApm.start({
   environment: process.env.APM_ENVIRONMENT
 });
 
-elasticApm.startTransaction('my-service-a-transaction');
-const traceparent = elasticApm.currentTraceparent;
-sendMetadata(`traceparent: ${traceparent}\n`);
+var err = new Error('Oops, something broke!')
+elasticApm.captureError(err)
 
 const memCache = Number(process.env.MEMORY_CACHE) || 0;
 const server = prerender({
